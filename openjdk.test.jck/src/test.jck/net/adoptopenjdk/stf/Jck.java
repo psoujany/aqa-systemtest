@@ -350,6 +350,20 @@ public class Jck implements StfPluginInterface {
 			    secPropsContents += "noRetrievalMethodLoops";
 			test.doWriteFile("Writing into security.properties file.", secPropsFileRef, secPropsContents);
 		}
+		
+		if ( tests.contains("api/org_ietf") && (jckVersion.contains("jck8")) && (test.env().primaryJvm().isIBMJvm()) ) {
+			// Use com.ibm.security.auth.module.Krb5LoginModule
+			DirectoryRef secPropsLocation = test.env().getResultsDir().childDirectory("SecProps");
+			test.doMkdir("Creating dir to store the custom security properties", secPropsLocation);
+			FileRef secPropsFileRef = secPropsLocation.childFile("security.properties");
+			String secPropsContents = "SampleClient {\\" + "\n";
+			       secPropsContents += "com.ibm.security.auth.module.Krb5LoginModule required useDefaultCcache=true credsType=initiator;\\" +\n";
+			       secPropsContents += "};\\" + "\n";
+			       secPropsContents += "SampleServer {\\" + "\n";
+			       secPropsContents += "com.ibm.security.auth.module.Krb5LoginModule required credsType=both;\\" + "\n";
+			       secPropsContents += "};\\" + "\n";
+			test.doWriteFile("Writing into security.properties file.", secPropsFileRef, secPropsContents);
+		}
 
 		if ( PlatformFinder.isZOS() ) {
 			test.doIconvFile("Converting .jtb file to ascii", newJtbFileRef.getSpec(), "IBM-1047", "ISO8859-1");
@@ -982,7 +996,7 @@ public class Jck implements StfPluginInterface {
 	private String getTestSpecificJvmOptions (StfCoreExtension test, String jckVersion, String tests) throws StfException {
 		String testSpecificJvmOptions = "";
 
-		if ( tests.contains("api/javax_net") || tests.contains("api/javax_xml") ) {
+		if ( tests.contains("api/javax_net") || tests.contains("api/javax_xml") || tests.contains("api/org_ietf") ) {
 			// Needs extra security.properties
 			FileRef secPropsFile = test.env().getResultsDir().childDirectory("SecProps").childFile("security.properties");
 			testSpecificJvmOptions += " -Djava.security.properties=" + secPropsFile;
