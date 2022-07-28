@@ -351,7 +351,7 @@ public class Jck implements StfPluginInterface {
 			test.doWriteFile("Writing into security.properties file.", secPropsFileRef, secPropsContents);
 		}
 		
-		if ( tests.contains("api/org_ietf") && (jckVersion.contains("jck8")) && (test.env().primaryJvm().isIBMJvm()) ) {
+		if ( tests.contains("api/org_ietf") && (jckVersion.contains("jck8")) ) {
 			// Use com.ibm.security.auth.module.Krb5LoginModule
 			DirectoryRef secPropsLocation = test.env().getResultsDir().childDirectory("SecProps");
 			test.doMkdir("Creating dir to store the custom security properties", secPropsLocation);
