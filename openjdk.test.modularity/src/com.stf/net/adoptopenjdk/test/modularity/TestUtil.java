@@ -14,8 +14,10 @@
 
 package net.adoptopenjdk.test.modularity;
 
+import java.io.FileOutputStream;
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.Scanner;
