@@ -40,7 +40,7 @@ public class TestUtil {
 			output.append(scanner2.nextLine() + "\n");
 		}
 
-		Writer pw = new OutputStreamWriter(new FileOutputStream(combinedFile), Charset.forName(“IBM-1047”)); 
+		Writer pw = new OutputStreamWriter(new FileOutputStream(combinedFile), Charset.forName("IBM-1047")); 
 		pw.write(output.toString());
 		pw.flush();
 		pw.close();
