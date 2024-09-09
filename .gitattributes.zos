@@ -10,9 +10,10 @@
 # See the License for the specific language governing permissions and
 
 # The default for text files
-* git-encoding=iso8859-1 working-tree-encoding=ibm-1047
+#* git-encoding=iso8859-1 working-tree-encoding=ibm-1047
 
 # Specific types of files remain as ASCII
+*.java git-encoding=iso8859-1 working-tree-encoding=iso8859-1
 *.xml git-encoding=iso8859-1 working-tree-encoding=iso8859-1
 *.dtd git-encoding=iso8859-1 working-tree-encoding=iso8859-1
 *.xsd git-encoding=iso8859-1 working-tree-encoding=iso8859-1
@@ -55,3 +56,6 @@
 *.so binary
 *.war binary
 *.zip binary
+openjdk.test.jlm/src/test.jlm/net/adoptopenjdk/test/jlm/testkeys binary
+openjdk.test.security/src/test.security/net/adoptopenjdk/test/auth/testkeys binary
+

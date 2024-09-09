@@ -16,6 +16,7 @@ package net.adoptopenjdk.test.modularity;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Scanner;
 
 import net.adoptopenjdk.stf.StfException;
@@ -39,7 +40,7 @@ public class TestUtil {
 			output.append(scanner2.nextLine() + "\n");
 		}
 
-		PrintWriter pw = new PrintWriter(combinedFile); 
+		Writer pw = new OutputStreamWriter(new FileOutputStream(combinedFile), Charset.forName(“IBM-1047”)); 
 		pw.write(output.toString());
 		pw.flush();
 		pw.close();
