@@ -17,6 +17,7 @@ package net.adoptopenjdk.test.modularity;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 import net.adoptopenjdk.stf.StfException;
