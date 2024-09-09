@@ -179,17 +179,17 @@ limitations under the License.
 				includes="**"/>
         </copy>
 			
-		<copy todir="${openjdk_test_modularity_bin_dir}/common-mods/com.discreet/adoptopenjdk/test/modularity/exported">
+		<copy todir="${openjdk_test_modularity_bin_dir}/common-mods/com.discreet/adoptopenjdk/test/modularity/exported" outputencoding="IBM-1047">
 			<fileset dir="${openjdk_test_modularity_src_dir}/common-mods/com.discreet/adoptopenjdk/test/modularity/exported"
 				includes="**/*.properties" />
 		</copy>
 		
-		<copy todir="${openjdk_test_modularity_bin_dir}/tests/com.test/net/adoptopenjdk/test/modularity/junit">
+		<copy todir="${openjdk_test_modularity_bin_dir}/tests/com.test/net/adoptopenjdk/test/modularity/junit" outputencoding="IBM-1047">
 		    <fileset dir="${openjdk_test_modularity_src_dir}/tests/com.test/net/adoptopenjdk/test/modularity/junit"
 		        includes="**/*.properties" />
 		</copy>
 		
-		<copy todir="${openjdk_test_modularity_bin_dir}/tests/com.test.jlink/conf">
+		<copy todir="${openjdk_test_modularity_bin_dir}/tests/com.test.jlink/conf" outputencoding="IBM-1047">
 			<fileset dir="${openjdk_test_modularity_src_dir}/tests/com.test.jlink/conf"
 				includes="**/*.properties" />
 		</copy>
